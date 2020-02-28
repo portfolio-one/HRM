@@ -1,5 +1,5 @@
 # Larave HRM 
-# Warning don not commit to direct master
+# Warning do not commit to direct master
 # Every task should be seperate branch . 
 <p>branch name sample : example_design<p>
 
