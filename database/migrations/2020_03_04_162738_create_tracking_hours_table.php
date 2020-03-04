@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateTrackingHoursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('tracking_hours', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->Integer('role_id');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->Integer('employee_id');
+            $table->Integer('office_start_time');
+            $table->Integer('start_break_time');
+            $table->Integer('end_break_time');
+            $table->Integer('office_end_time');
             $table->string('status')->default(1);
-            $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('tracking_hours');
     }
 }
