@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class RoleController extends Controller
 {
@@ -13,7 +15,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $role_info=Role::all();
+        return response()->json($role_info,200);
     }
 
     /**
@@ -34,7 +37,19 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'slug'      =>['required','string','max:255','min:3'],
+            'name'      =>['required','string','max:255','min:3'],
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withInput()->withErrors($validator->errors());
+        } else {
+            Role::create($request->all());
+        }
+
+            return response('Role Created Sucessfully.',201);
+
     }
 
     /**
