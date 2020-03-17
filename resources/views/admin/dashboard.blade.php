@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    {{ Auth::user()->email }}
-    <example-component/>
+    <!-- {{ Auth::user()->email }} -->
+    <dashboard/>
 @endsection

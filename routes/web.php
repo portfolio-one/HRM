@@ -11,18 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::group(['middleware'=>['auth']],function(){
-    Route::group(['prefix'=>'admin','as'=>'admin.','namespace'=>'Admin','middleware' => ['auth','admin']], function () {
-        Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-    });
-    Route::group(['prefix'=>'employee','as'=>'employee.','namespace'=>'Employee','middleware' => ['auth','employee']], function () {
-        Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-    });
-});
+Route::get('/', 'HomeController@index');
+Route::get('/{any}', 'HomeController@index');
+Route::get('/{any}/{any1}', 'HomeController@index');
+
+// Route::group(['middleware'=>['auth']],function(){
+//     Route::group(['prefix'=>'admin','as'=>'admin.','namespace'=>'Admin','middleware' => ['auth','admin']], function () {
+//         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+//     });
+//     Route::group(['prefix'=>'employee','as'=>'employee.','namespace'=>'Employee','middleware' => ['auth','employee']], function () {
+//         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+//     });
+// });
