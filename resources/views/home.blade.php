@@ -8,6 +8,11 @@
     <title>HRM</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+    body {
+  font-family: "Lato", sans-serif;
+}
+    </style>
 </head>
 <body>
 <div id="app">

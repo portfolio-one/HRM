@@ -10,10 +10,10 @@ const loadView = view => () => import(`../views/${view}.vue`)
 const routes = [{
         path: '/',
         component: loadLayout("DefaultLayout"),
-        children: [{
-            path: '',
-            component: loadView("Home")
-        }, ]
+        children: [
+            {path: '', component: loadView("Home") }, 
+            {path: '/notice', component: loadView("Notice") }, 
+        ]
 
     },
 

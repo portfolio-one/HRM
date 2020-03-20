@@ -93617,6 +93617,9 @@ var routes = [{
   children: [{
     path: '',
     component: loadView("Home")
+  }, {
+    path: '/notice',
+    component: loadView("Notice")
   }]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -93715,7 +93718,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 var map = {
 	"./DefaultLayout.vue": [
 		"./resources/js/components/layouts/DefaultLayout.vue",
-		1
+		1,
+		2
 	]
 };
 function webpackAsyncContext(req) {
@@ -93728,7 +93732,7 @@ function webpackAsyncContext(req) {
 	}
 
 	var ids = map[req], id = ids[0];
-	return __webpack_require__.e(ids[1]).then(function() {
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
 		return __webpack_require__(id);
 	});
 }
@@ -93750,6 +93754,11 @@ module.exports = webpackAsyncContext;
 var map = {
 	"./Home.vue": [
 		"./resources/js/views/Home.vue",
+		1,
+		3
+	],
+	"./Notice.vue": [
+		"./resources/js/views/Notice.vue",
 		0
 	]
 };
@@ -93763,7 +93772,7 @@ function webpackAsyncContext(req) {
 	}
 
 	var ids = map[req], id = ids[0];
-	return __webpack_require__.e(ids[1]).then(function() {
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
 		return __webpack_require__(id);
 	});
 }
